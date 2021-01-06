@@ -7,11 +7,20 @@
 const list1 = [1, 2, 4]
 const list2 = [1, 3, 4]
 
+/**
+ * Definition for singly-linked list.
+ function ListNode(val, next) {
+    this.val = (val===undefined ? 0 : val)
+    this.next = (next===undefined ? null : next)
+ }
+*/
+
 var mergeTwoLists = function(l1, l2) {
     const head = new ListNode()
-    let current = head // sets current to head of linked list
+    let current = head // sets current to head of linked list. 
+    //need to retain pointer to head to return later on. The current pointer gets updated as you merge the two lists.
      
-    while(l1 && l2) { // while l1 and l2 exist
+    while(l1 && l2) { // while l1 and l2 exist, not at the end of the lists
         if(l1.val <= l2.val) { 
             current.next = l1
             l1 = l1.next // changes l1 to be the next value in the l1 array
@@ -21,7 +30,7 @@ var mergeTwoLists = function(l1, l2) {
             l2 = l2.next // changes l2 to be the next value in the l2 array
         }
         
-        current = current.next // moves to the next spot in the linked list
+        current = current.next // sets current to be the l1 or l2 value and then move to the next spot in the linked list
     }
     // get any left over values in l1 and l2 it will push them into linked list
     if(l1) {
@@ -35,3 +44,6 @@ var mergeTwoLists = function(l1, l2) {
 }
 
 mergeTwoLists(list1, list2)
+
+// Time Complexity: O(m + n), m = length of l1, n = length of l2
+// Space Complexity: O(1)
