@@ -36,3 +36,8 @@ var addStrings = function(num1, num2) {
 };
 
 addStrings(number1, number2)
+
+// Time Complexity: O(max(n_1, n_2)), where n1 n2 are length of nums1 and nums2. 
+// Here we do max(n_1, n_2) iterations at most
+
+// Space Complexity: Object(max(n1, n2)) because the length of the new string is at most max(n1, n2) + 1

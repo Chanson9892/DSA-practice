@@ -20,3 +20,6 @@ var climbStairs = function(n) {
 };
 
 climbStairs(stairs)
+
+//Time complexity: O(n) single loop upto n
+// Space complexity: O(n) array of size n is used.

@@ -20,3 +20,6 @@ var firstUniqChar = function(s) {
 };
 
 firstUniqChar(word)
+
+// Time complexity: O(n) since we go through the string of length n once.
+// Space complexity: O(1) because there are only the amount of letters in s
