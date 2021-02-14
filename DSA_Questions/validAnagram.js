@@ -60,10 +60,10 @@ function validAnagram(str1, str2){
   for(let i = 0; i < str2.length; i++){
     let letter = str2[i]
     // can't find letter or letter is zero then its not an anagram
-    if (!lookup[letter]){
+    if (!lookup[letter]){ // if there is an extra or a different letter in str2
       return false
     } else {
-      lookup[letter] -= 1
+      lookup[letter] -= 1 // find the letter and subtract 1 from are key value pair
     }
   }
   return true
