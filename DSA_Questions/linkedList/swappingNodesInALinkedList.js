@@ -11,8 +11,46 @@
 
 // fast ---------------------------------------------------
 
+var swapNodes = function(head, k) {
+    let current = head
+    let count = 0
+    while (current) {
+        count++
+        current = current.next
+    }
 
+    current = head
+    
+    //position of swapping are k and n-k+1
+	let endK = count-k+1
+    
+    // the linkedlist's swap position are same
+    if(k == endK) {
+        return head
+    }
+    
+    let swap1, swap2, pointer = 1
+    //pointers to the swapping position
+    while(pointer<=count){
+        if(pointer==k) {
+            swap1=current
+        }
+        
+        if(pointer==endK) {
+            swap2= current
+        }
+        
+        current=current.next
+        pointer++
+    }
+	// swapping
+    pointer = swap1.val
+    swap1.val=swap2.val
+    swap2.val=pointer
 
+    return head
+    
+};
 
 // slow answer -------------------------------------------------------------
 
