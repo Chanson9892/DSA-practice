@@ -12,41 +12,52 @@
 // fast ---------------------------------------------------
 
 var swapNodes = function(head, k) {
-    let current = head
-    let count = 0
-    while (current) {
-        count++
-        current = current.next
+    // pointer to go through the list
+    let pointer = head
+
+    // number of nodes in list
+    let num = 0
+
+    // iterate through list to get the number of nodes
+    while (pointer) {
+        num++
+        pointer = pointer.next
     }
 
-    current = head
+    // reset to beginning of list
+    pointer = head
     
-    //position of swapping are k and n-k+1
-	let endK = count-k+1
+    // 2nd position of swapping is n-k+1
+	let endK = num-k+1
     
-    // the linkedlist's swap position are same
+    // if the list's swap position are same, there is no change
     if(k == endK) {
         return head
     }
     
-    let swap1, swap2, pointer = 1
-    //pointers to the swapping position
-    while(pointer<=count){
-        if(pointer==k) {
-            swap1=current
+    // swap1 and 2 are the nodes to switch
+    // count is used to find the nodes to switch
+    let swap1, swap2, count = 1
+
+    //iterate through list to find the values to swap
+    while(count<=num){
+        // if count and k are the same, we found the 1st node to swap
+        if(count==k) {
+            swap1=pointer
         }
         
-        if(pointer==endK) {
-            swap2= current
+        // if count and endK are the same, we found the 2nd node to swap
+        if(count==endK) {
+            swap2= pointer
         }
         
-        current=current.next
-        pointer++
+        pointer=pointer.next
+        count++
     }
-	// swapping
-    pointer = swap1.val
-    swap1.val=swap2.val
-    swap2.val=pointer
+	// swap
+    let temp = swap1.val
+    swap1.val = swap2.val
+    swap2.val = temp
 
     return head
     
