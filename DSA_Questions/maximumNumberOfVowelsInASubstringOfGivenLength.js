@@ -26,7 +26,7 @@ var maxVowels = function(s, k) {
         if (vowels.includes(s[i])) {
             // adds vowel to count
             count++
-            result = Math.result(result, count)
+            result = Math.max(result, count)
             // number of vowels equal k
             if (result === k) {
                 return k
